@@ -1,1 +1,1 @@
-# salman-wahed.github.io
+# salmanwahed.github.io
