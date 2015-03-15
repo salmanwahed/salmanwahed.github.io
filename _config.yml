@@ -1,0 +1,24 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:         true
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Salman Wahed's blog
+tagline:          ''
+description:      'Tech blogging.'
+url:              http://salmanwahed.github.io
+
+author:
+  name:           'Mark Otto'
+  url:            https://twitter.com/salman_wahed
+
+paginate:         1
+
+# Custom vars
+version:          2.0.0
+
+github:
+  repo:           https://github.com/salmanwahed/salmanwahed.github.io
