@@ -37,7 +37,7 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>Tech blogging.</p>
+    <p>Technical Writings</p>
   </div>
 
   <nav class="sidebar-nav">
@@ -67,12 +67,14 @@
     
       
     
+      
+    
 
     <!--
-    <a class="sidebar-nav-item" href="https://github.com/salmanwahed/salmanwahed.github.io/archive/v2.0.0.zip">Download</a> 
+    <a class="sidebar-nav-item" href="https://github.com/salmanwahed/salmanwahed.github.io/archive/v3.0.0.zip">Download</a> 
     -->
     <a class="sidebar-nav-item" href="https://github.com/salmanwahed">GitHub</a>
-    <!-- <span class="sidebar-nav-item">Currently v2.0.0</span> -->
+    <!-- <span class="sidebar-nav-item">Currently v3.0.0</span> -->
   </nav>
 
   <div class="sidebar-item">
@@ -104,13 +106,78 @@
  <title>Salman Wahed's blog</title>
  <link href="http://salmanwahed.github.io/atom.xml" rel="self"/>
  <link href="http://salmanwahed.github.io/"/>
- <updated>2015-05-01T12:44:23+06:00</updated>
+ <updated>2015-05-02T00:01:54+06:00</updated>
  <id>http://salmanwahed.github.io</id>
  <author>
-   <name>Mark Otto</name>
+   <name>Salman Wahed</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Creating a REST Api using Flask-Restful and MongoDB</title>
+   <link href="http://salmanwahed.github.io/2015/05/01/flask-restful-mongodb-api/"/>
+   <updated>2015-05-01T00:00:00+06:00</updated>
+   <id>http://salmanwahed.github.io/2015/05/01/flask-restful-mongodb-api</id>
+   <content type="html">&lt;h3&gt;About REST&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;REST&lt;/code&gt; (Representational State Transfer) is an architecture style for designing networked applications. The idea is using 
+simple HTTP methods for making calls between machines rather than complex mechanisms such as &lt;code&gt;CORBA&lt;/code&gt;, &lt;code&gt;RPC&lt;/code&gt; or &lt;code&gt;SOAP&lt;/code&gt;. 
+So a RESTful system typically communicates over the Hypertext Transfer Protocol with the same HTTP verbs (&lt;code&gt;GET&lt;/code&gt;, &lt;code&gt;POST&lt;/code&gt;, &lt;code&gt;PUT&lt;/code&gt;, &lt;code&gt;DELETE&lt;/code&gt;, etc.)&lt;/p&gt;
+
+&lt;h3&gt;Flask and Flask-RESTful&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://flask.pocoo.org/&quot;&gt;Flask&lt;/a&gt; is a microframework for Python based on Werkzeug, Jinja2. &lt;a href=&quot;https://flask-restful.readthedocs.org/en/0.3.2/&quot;&gt;Flask-RESTful&lt;/a&gt; 
+provides an extension to Flask for building REST APIs.&lt;/p&gt;
+
+&lt;h3&gt;Installing packages&lt;/h3&gt;
+
+&lt;p&gt;For the api, we need to install some packages like Flask-Restful, pymongo etc. It&amp;#39;s good practice to install packages 
+and modules for a project in a virtual environment. So i am going to create a virtual environment and activate it.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;virtualenv env
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;env/bin/activate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now the required packages can be installed using pip. (Link: &lt;a href=&quot;https://github.com/salmanwahed/flask-restful-mongodb-api/blob/master/requirements.txt&quot;&gt;requirements.txt&lt;/a&gt;)&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pip install -r requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;API&lt;/h3&gt;
+
+&lt;p&gt;Lets do the code first,&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/salmanwahed/13b67bc8d77f60a495be.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;This is a basic api with only one Resource Student. First we created an instance of Flask,&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Flask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;after that we configured app with MongoDB. The resource Student has HTTP methods defined in it as it&amp;#39;s own method. By 
+calling different HTTP methods we can perform basic &lt;code&gt;CRUD&lt;/code&gt; operations. Like &lt;code&gt;post&lt;/code&gt; method for inserting/creating, &lt;code&gt;put&lt;/code&gt; 
+for updating, &lt;code&gt;get&lt;/code&gt; for reading and &lt;code&gt;delete&lt;/code&gt; for deleting a document.&lt;/p&gt;
+
+&lt;p&gt;In the code &lt;code&gt;post&lt;/code&gt;, &lt;code&gt;put&lt;/code&gt;, &lt;code&gt;delete&lt;/code&gt; methods are basic.  These methods perform create, update and delete operation on the 
+collection &lt;code&gt;student&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;But in the get method, by calling different url we can perform different operations. If no parameter passed with url, 
+the method will return all the documents in the collection. If a &lt;code&gt;registration&lt;/code&gt; number passed with the url then, it 
+will check the parameter name and will return one document. If request is made in &lt;code&gt;/api/department/&amp;lt;string:department&amp;gt;&lt;/code&gt; 
+url, it will check for parameter name &lt;code&gt;department&lt;/code&gt; in the get method and returns all the documents for a particular department.&lt;/p&gt;
+
+&lt;p&gt;There are several urls for same resource so we added different &lt;a href=&quot;https://flask-restful.readthedocs.org/en/0.3.2/quickstart.html#endpoints&quot;&gt;endpoints&lt;/a&gt; 
+for them.&lt;/p&gt;
+
+&lt;h3&gt;Testing&lt;/h3&gt;
+
+&lt;p&gt;We will use python &lt;a href=&quot;http://docs.python-requests.org/en/latest/&quot;&gt;requests&lt;/a&gt; module (version &amp;gt; 2.4.2) for testing the api. 
+But also curl and other mechanism can be used. For get request we can view the data in browsers also.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;In &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;: from requests import get, post, put, delete
+In &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;2&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;: get&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;http://127.0.0.1:5000/api&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+In &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;: &lt;span class=&quot;nv&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&amp;quot;Example Name&amp;quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&amp;quot;registration&amp;quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&amp;quot;123433199&amp;quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&amp;quot;department&amp;quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&amp;quot;cse&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+In &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;4&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;: post&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;http://127.0.0.1:5000/api&amp;quot;&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;data&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.json&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+In &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;5&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;: put&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;http://127.0.0.1:5000/api/123433199&amp;quot;&lt;/span&gt;, &lt;span class=&quot;nv&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;={&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;website&amp;quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&amp;quot;www.example.com&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;.json&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+In &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;6&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;: delete&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;http://127.0.0.1:5000/api/123433199&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.json&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Lets take some REST.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Difference between .string and .text BeautifulSoup</title>

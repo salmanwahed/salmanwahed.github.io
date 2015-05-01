@@ -10,7 +10,7 @@
 
   <title>
     
-      404: Page not found &middot; Salman Wahed's blog
+      Salman Wahed's blog &middot; 
     
   </title>
 
@@ -30,6 +30,7 @@
 
 
   <body>
+
     <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
 <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
@@ -100,32 +101,60 @@
       </div>
 
       <div class="container content">
-        <div class="page">
-  <h1 class="page-title">404: Page not found</h1>
-  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="/">Head back home</a> to try finding it again.</p>
+        <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2015/03/31/string-text-difference-bs4/">
+        Difference between .string and .text BeautifulSoup
+      </a>
+    </h1>
+
+    <span class="post-date">31 Mar 2015</span>
+
+    <div class="message">
+<a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautiful Soup</a> is a Python library for parsing HTML and XML documents. It can be used to parse malformed markup, (i.e. non-closed tags). It creates a parse tree for parsed pages that can be used to extract data from HTML, which is useful for web scraping. It is available for Python 2.6+ and Python 3.
 </div>
 
-        <!-- This is the actual comments section -->
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'salmanwahed'; // required: replace example with your forum shortname
-    var disqus_identifier = '/404/';
-    var disqus_url = 'salmanwahed.github.io/404/';
+<p><code>.string</code> on a Tag type object returns a NavigableString type object. On the other hand, <code>.text</code> gets all the child strings and return concatenated using the given separator. Return type of <code>.text</code> is unicode object.</p>
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the
-    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
-        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by
-            <span class="logo-disqus">Disqus</span>
-        </a>
+<p>From the <a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/#navigablestring">documentation</a>, A NavigableString is just like a Python Unicode string, except that it also supports some of the features described in Navigating the tree and Searching the tree.</p>
+
+<p>From the <a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/#string">documentation</a> on <code>.string</code>, we can see that, If the html is like this,</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;td&gt;</span>some text<span class="nt">&lt;/td&gt;</span>
+<span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+<span class="nt">&lt;td&gt;&lt;p&gt;</span>more text<span class="nt">&lt;/p&gt;&lt;/td&gt;</span>
+<span class="nt">&lt;td&gt;</span>even <span class="nt">&lt;p&gt;</span>more text<span class="nt">&lt;/p&gt;&lt;/td&gt;</span></code></pre></div>
+
+<p><code>.string</code> on the four <code>td</code> will return,</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">some</span> <span class="n">text</span>
+<span class="bp">None</span>
+<span class="n">more</span> <span class="n">text</span>
+<span class="bp">None</span></code></pre></div>
+
+<p><code>.text</code> will give result like this,</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">some</span> <span class="n">text</span>
+
+<span class="n">more</span> <span class="n">text</span>
+<span class="n">even</span> <span class="n">more</span> <span class="n">text</span></code></pre></div>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <span class="pagination-item older">Older</span>
+  
+  
+    
+      <a class="pagination-item newer" href="/">Newer</a>
+    
+  
+</div>
       </div>
     </div>
     <script>
