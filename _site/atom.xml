@@ -72,7 +72,7 @@
     <!--
     <a class="sidebar-nav-item" href="https://github.com/salmanwahed/salmanwahed.github.io/archive/v2.0.0.zip">Download</a> 
     -->
-    <a class="sidebar-nav-item" href="https://github.com/salmanwahed/salmanwahed.github.io">GitHub project</a>
+    <a class="sidebar-nav-item" href="https://github.com/salmanwahed">GitHub</a>
     <!-- <span class="sidebar-nav-item">Currently v2.0.0</span> -->
   </nav>
 
@@ -105,7 +105,7 @@
  <title>Salman Wahed's blog</title>
  <link href="http://salmanwahed.github.io/atom.xml" rel="self"/>
  <link href="http://salmanwahed.github.io/"/>
- <updated>2015-03-31T21:18:15+06:00</updated>
+ <updated>2015-05-01T11:14:42+06:00</updated>
  <id>http://salmanwahed.github.io</id>
  <author>
    <name>Mark Otto</name>
@@ -154,5 +154,6 @@
 
       </div>
     </div>
+  
   </body>
 </html>
