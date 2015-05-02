@@ -1,8 +1,11 @@
 ---
-layout: index_layout
+layout: default
 ---
 
 <div class="page">
   <h1 class="page-title">{{ page.title }}</h1>
   {{ content }}
 </div>
+{% if page.comments %}
+    {% include discuss.html %}
+{% endif %}

@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: Creating a REST Api using Flask-Restful and MongoDB
 ---
 ### About REST ###

@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: Difference between .string and .text BeautifulSoup
 ---
 
