@@ -13,8 +13,7 @@ comments: true
     </h1>
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content }}
+    {{ post.excerpt }}
   </div>
   {% endfor %}
 </div>
@@ -35,6 +34,3 @@ comments: true
     <span class="pagination-item newer">Newer</span>
   {% endif %}
 </div>
-{% if page.comments %}
-    {% include discuss.html %}
-{% endif %}

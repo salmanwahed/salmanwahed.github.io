@@ -30,6 +30,15 @@
 
 
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
 <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
@@ -67,8 +76,6 @@
     
       
     
-      
-    
 
     <!--
     <a class="sidebar-nav-item" href="https://github.com/salmanwahed/salmanwahed.github.io/archive/v3.0.0.zip">Download</a> 
@@ -79,7 +86,7 @@
 
   <div class="sidebar-item">
     <p>
-      &copy; 2015. All rights reserved.
+      &copy; 2016. All rights reserved.
     </p>
   </div>
 </div>
@@ -106,7 +113,7 @@
  <title>Salman Wahed's blog</title>
  <link href="http://salmanwahed.github.io/atom.xml" rel="self"/>
  <link href="http://salmanwahed.github.io/"/>
- <updated>2015-05-02T10:53:54+06:00</updated>
+ <updated>2016-08-16T21:41:12+06:00</updated>
  <id>http://salmanwahed.github.io</id>
  <author>
    <name>Salman Wahed</name>

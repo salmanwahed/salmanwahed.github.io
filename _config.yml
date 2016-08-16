@@ -1,7 +1,7 @@
 # Dependencies
 markdown:         redcarpet
-# highlighter:         true
-pygments:         true
+highlighter:      pygments
+# pygments:         true
 
 # Permalinks
 permalink:        pretty
@@ -16,7 +16,7 @@ author:
   name:           'Salman Wahed'
   url:            https://twitter.com/salman_wahed
 
-paginate:         1
+paginate:         2
 
 # Custom vars
 version:          3.0.0

@@ -5,9 +5,17 @@ layout: default
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">{{ page.date | date_to_string }}</span>
+  <div style="float:right; margin-bottom:auto">
+    <spans>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </span>
+    <span>
+      <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    </span>
+  </div><br />
   {{ content }}
-</div>
 
+</div>
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
@@ -26,4 +34,3 @@ layout: default
 {% if page.comments %}
     {% include discuss.html %}
 {% endif %}
-

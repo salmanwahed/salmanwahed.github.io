@@ -30,6 +30,15 @@
 
 
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
 <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
@@ -67,8 +76,6 @@
     
       
     
-      
-    
 
     <!--
     <a class="sidebar-nav-item" href="https://github.com/salmanwahed/salmanwahed.github.io/archive/v3.0.0.zip">Download</a> 
@@ -79,7 +86,7 @@
 
   <div class="sidebar-item">
     <p>
-      &copy; 2015. All rights reserved.
+      &copy; 2016. All rights reserved.
     </p>
   </div>
 </div>
@@ -103,6 +110,14 @@
         <div class="post">
   <h1 class="post-title">Difference between .string and .text BeautifulSoup</h1>
   <span class="post-date">31 Mar 2015</span>
+  <div style="float:right; margin-bottom:auto">
+    <spans>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </span>
+    <span>
+      <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    </span>
+  </div><br />
   <div class="message">
 <a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautiful Soup</a> is a Python library for parsing HTML and XML documents. It can be used to parse malformed markup, (i.e. non-closed tags). It creates a parse tree for parsed pages that can be used to extract data from HTML, which is useful for web scraping. It is available for Python 2.6+ and Python 3.
 </div>
@@ -132,8 +147,8 @@
 <span class="n">more</span> <span class="n">text</span>
 <span class="n">even</span> <span class="n">more</span> <span class="n">text</span></code></pre></div>
 
-</div>
 
+</div>
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
@@ -163,7 +178,6 @@
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
 
 
       </div>
