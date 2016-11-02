@@ -1,0 +1,14 @@
+/*
+Custom Style
+*/
+
+ul.list {
+  margin-left: auto;
+  list-style: none;
+}
+
+ul.list li{
+  padding: inherit;
+  display: inline;
+  width: auto;
+}
