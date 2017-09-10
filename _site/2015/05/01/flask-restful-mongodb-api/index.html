@@ -120,42 +120,43 @@
       <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
     </span>
   </div><br />
-  <h3>About REST</h3>
-
+  <h3 id="about-rest">About REST</h3>
 <p><code>REST</code> (Representational State Transfer) is an architecture style for designing networked applications. The idea is using 
 simple HTTP methods for making calls between machines rather than complex mechanisms such as <code>CORBA</code>, <code>RPC</code> or <code>SOAP</code>. 
 So a RESTful system typically communicates over the Hypertext Transfer Protocol with the same HTTP verbs (<code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>, etc.)</p>
 
-<h3>Flask and Flask-RESTful</h3>
-
+<h3 id="flask-and-flask-restful">Flask and Flask-RESTful</h3>
 <p><a href="http://flask.pocoo.org/">Flask</a> is a microframework for Python based on Werkzeug, Jinja2. <a href="https://flask-restful.readthedocs.org/en/0.3.2/">Flask-RESTful</a> 
 provides an extension to Flask for building REST APIs.</p>
 
-<h3>Installing packages</h3>
-
-<p>For the api, we need to install some packages like Flask-Restful, pymongo etc. It&#39;s good practice to install packages 
+<h3 id="installing-packages">Installing packages</h3>
+<p>For the api, we need to install some packages like Flask-Restful, pymongo etc. It’s good practice to install packages 
 and modules for a project in a virtual environment. So i am going to create a virtual environment and activate it.</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ virtualenv env
-$ <span class="nb">source</span> env/bin/activate
-</code></pre></div>
-<p>Now the required packages can be installed using pip. (Link: <a href="https://github.com/salmanwahed/flask-restful-mongodb-api/blob/master/requirements.txt">requirements.txt</a>)</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ pip install -r requirements.txt
-</code></pre></div>
-<h3>API</h3>
 
+<pre><code class="language-sh">$ virtualenv env
+$ source env/bin/activate
+</code></pre>
+
+<p>Now the required packages can be installed using pip. (Link: <a href="https://github.com/salmanwahed/flask-restful-mongodb-api/blob/master/requirements.txt">requirements.txt</a>)</p>
+
+<pre><code class="language-sh">$ pip install -r requirements.txt
+</code></pre>
+<h3 id="api">API</h3>
 <p>Lets do the code first,</p>
 
 <script src="https://gist.github.com/salmanwahed/13b67bc8d77f60a495be.js"></script>
 
 <p>This is a basic api with only one Resource Student. First we created an instance of Flask,</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-</code></pre></div>
-<p>after that we configured app with MongoDB. The resource Student has HTTP methods defined in it as it&#39;s own method. By 
+
+<pre><code class="language-python">app = Flask(__name__)
+</code></pre>
+
+<p>after that we configured app with MongoDB. The resource Student has HTTP methods defined in it as it’s own method. By 
 calling different HTTP methods we can perform basic <code>CRUD</code> operations. Like <code>post</code> method for inserting/creating, <code>put</code> 
 for updating, <code>get</code> for reading and <code>delete</code> for deleting a document.</p>
 
 <p>In the code <code>post</code>, <code>put</code>, <code>delete</code> methods are basic.  These methods perform create, update and delete operation on the 
-collection <code>student</code>. </p>
+collection <code>student</code>.</p>
 
 <p>But in the get method, by calling different url we can perform different operations. If no parameter passed with url, 
 the method will return all the documents in the collection. If a <code>registration</code> number passed with the url then, it 
@@ -165,17 +166,17 @@ url, it will check for parameter name <code>department</code> in the get method 
 <p>There are several urls for same resource so we added different <a href="https://flask-restful.readthedocs.org/en/0.3.2/quickstart.html#endpoints">endpoints</a> 
 for them.</p>
 
-<h3>Testing</h3>
-
+<h3 id="testing">Testing</h3>
 <p>We will use python <a href="http://docs.python-requests.org/en/latest/">requests</a> module (version &gt; 2.4.2) for testing the api. 
 But also curl and other mechanism can be used. For get request we can view the data in browsers also.</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: from requests import get, post, put, delete
-In <span class="o">[</span><span class="m">2</span><span class="o">]</span>: get<span class="o">(</span><span class="s2">&quot;http://127.0.0.1:5000/api&quot;</span><span class="o">)</span>
-In <span class="o">[</span><span class="m">3</span><span class="o">]</span>: <span class="nv">data</span> <span class="o">=</span> <span class="o">{</span><span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Example Name&quot;</span>, <span class="s2">&quot;registration&quot;</span>: <span class="s2">&quot;123433199&quot;</span>, <span class="s2">&quot;department&quot;</span>: <span class="s2">&quot;cse&quot;</span><span class="o">}</span>
-In <span class="o">[</span><span class="m">4</span><span class="o">]</span>: post<span class="o">(</span><span class="s2">&quot;http://127.0.0.1:5000/api&quot;</span>, <span class="nv">json</span><span class="o">=</span>data<span class="o">)</span>.json<span class="o">()</span>
-In <span class="o">[</span><span class="m">5</span><span class="o">]</span>: put<span class="o">(</span><span class="s2">&quot;http://127.0.0.1:5000/api/123433199&quot;</span>, <span class="nv">json</span><span class="o">={</span><span class="s2">&quot;website&quot;</span>: <span class="s2">&quot;www.example.com&quot;</span><span class="o">})</span>.json<span class="o">()</span>
-In <span class="o">[</span><span class="m">6</span><span class="o">]</span>: delete<span class="o">(</span><span class="s2">&quot;http://127.0.0.1:5000/api/123433199&quot;</span><span class="o">)</span>.json<span class="o">()</span>
-</code></pre></div>
+
+<pre><code class="language-sh">In [1]: from requests import get, post, put, delete
+In [2]: get("http://127.0.0.1:5000/api")
+In [3]: data = {"name": "Example Name", "registration": "123433199", "department": "cse"}
+In [4]: post("http://127.0.0.1:5000/api", json=data).json()
+In [5]: put("http://127.0.0.1:5000/api/123433199", json={"website": "www.example.com"}).json()
+In [6]: delete("http://127.0.0.1:5000/api/123433199").json()
+</code></pre>
 <p>Lets take some REST.</p>
 
 
