@@ -88,7 +88,7 @@
 
   <div class="sidebar-item">
     <p>
-      &copy; 2016. All rights reserved.
+      &copy; 2017. All rights reserved.
     </p>
   </div>
 </div>
@@ -135,11 +135,11 @@ provides an extension to Flask for building REST APIs.</p>
 
 <p>For the api, we need to install some packages like Flask-Restful, pymongo etc. It&#39;s good practice to install packages 
 and modules for a project in a virtual environment. So i am going to create a virtual environment and activate it.</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>virtualenv env
-<span class="nv">$ </span><span class="nb">source </span>env/bin/activate
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ virtualenv env
+$ <span class="nb">source</span> env/bin/activate
 </code></pre></div>
 <p>Now the required packages can be installed using pip. (Link: <a href="https://github.com/salmanwahed/flask-restful-mongodb-api/blob/master/requirements.txt">requirements.txt</a>)</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>pip install -r requirements.txt
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ pip install -r requirements.txt
 </code></pre></div>
 <h3>API</h3>
 
@@ -148,7 +148,7 @@ and modules for a project in a virtual environment. So i am going to create a vi
 <script src="https://gist.github.com/salmanwahed/13b67bc8d77f60a495be.js"></script>
 
 <p>This is a basic api with only one Resource Student. First we created an instance of Flask,</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 </code></pre></div>
 <p>after that we configured app with MongoDB. The resource Student has HTTP methods defined in it as it&#39;s own method. By 
 calling different HTTP methods we can perform basic <code>CRUD</code> operations. Like <code>post</code> method for inserting/creating, <code>put</code> 
@@ -169,12 +169,12 @@ for them.</p>
 
 <p>We will use python <a href="http://docs.python-requests.org/en/latest/">requests</a> module (version &gt; 2.4.2) for testing the api. 
 But also curl and other mechanism can be used. For get request we can view the data in browsers also.</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">In <span class="o">[</span>1<span class="o">]</span>: from requests import get, post, put, delete
-In <span class="o">[</span>2<span class="o">]</span>: get<span class="o">(</span><span class="s2">&quot;http://127.0.0.1:5000/api&quot;</span><span class="o">)</span>
-In <span class="o">[</span>3<span class="o">]</span>: <span class="nv">data</span> <span class="o">=</span> <span class="o">{</span><span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Example Name&quot;</span>, <span class="s2">&quot;registration&quot;</span>: <span class="s2">&quot;123433199&quot;</span>, <span class="s2">&quot;department&quot;</span>: <span class="s2">&quot;cse&quot;</span><span class="o">}</span>
-In <span class="o">[</span>4<span class="o">]</span>: post<span class="o">(</span><span class="s2">&quot;http://127.0.0.1:5000/api&quot;</span>, <span class="nv">json</span><span class="o">=</span>data<span class="o">)</span>.json<span class="o">()</span>
-In <span class="o">[</span>5<span class="o">]</span>: put<span class="o">(</span><span class="s2">&quot;http://127.0.0.1:5000/api/123433199&quot;</span>, <span class="nv">json</span><span class="o">={</span><span class="s2">&quot;website&quot;</span>: <span class="s2">&quot;www.example.com&quot;</span><span class="o">})</span>.json<span class="o">()</span>
-In <span class="o">[</span>6<span class="o">]</span>: delete<span class="o">(</span><span class="s2">&quot;http://127.0.0.1:5000/api/123433199&quot;</span><span class="o">)</span>.json<span class="o">()</span>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: from requests import get, post, put, delete
+In <span class="o">[</span><span class="m">2</span><span class="o">]</span>: get<span class="o">(</span><span class="s2">&quot;http://127.0.0.1:5000/api&quot;</span><span class="o">)</span>
+In <span class="o">[</span><span class="m">3</span><span class="o">]</span>: <span class="nv">data</span> <span class="o">=</span> <span class="o">{</span><span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;Example Name&quot;</span>, <span class="s2">&quot;registration&quot;</span>: <span class="s2">&quot;123433199&quot;</span>, <span class="s2">&quot;department&quot;</span>: <span class="s2">&quot;cse&quot;</span><span class="o">}</span>
+In <span class="o">[</span><span class="m">4</span><span class="o">]</span>: post<span class="o">(</span><span class="s2">&quot;http://127.0.0.1:5000/api&quot;</span>, <span class="nv">json</span><span class="o">=</span>data<span class="o">)</span>.json<span class="o">()</span>
+In <span class="o">[</span><span class="m">5</span><span class="o">]</span>: put<span class="o">(</span><span class="s2">&quot;http://127.0.0.1:5000/api/123433199&quot;</span>, <span class="nv">json</span><span class="o">={</span><span class="s2">&quot;website&quot;</span>: <span class="s2">&quot;www.example.com&quot;</span><span class="o">})</span>.json<span class="o">()</span>
+In <span class="o">[</span><span class="m">6</span><span class="o">]</span>: delete<span class="o">(</span><span class="s2">&quot;http://127.0.0.1:5000/api/123433199&quot;</span><span class="o">)</span>.json<span class="o">()</span>
 </code></pre></div>
 <p>Lets take some REST.</p>
 

@@ -10,7 +10,7 @@ permalink:        pretty
 title:            Salman Wahed's blog
 tagline:          ''
 description:      'Technical Writings'
-url:              http://salmanwahed.github.io
+url:              https://salmanwahed.github.io
 
 author:
   name:           'Salman Wahed'
@@ -32,3 +32,6 @@ linkedin_username:    salmanwahed
 google_plus_username: +SalmanWahed
 facebook_username:    salmanwahed
 stack_overflow_username: salmanwahed
+
+# Gems
+gems: [jekyll-paginate]

@@ -88,7 +88,7 @@
 
   <div class="sidebar-item">
     <p>
-      &copy; 2016. All rights reserved.
+      &copy; 2017. All rights reserved.
     </p>
   </div>
 </div>
@@ -145,24 +145,24 @@ So a RESTful system typically communicates over the Hypertext Transfer Protocol 
 
 <p>From the <a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/#string">documentation</a> on <code>.string</code>, we can see that, If the html is like this,</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;td&gt;</span>some text<span class="nt">&lt;/td&gt;</span>
-<span class="nt">&lt;td&gt;&lt;/td&gt;</span>
-<span class="nt">&lt;td&gt;&lt;p&gt;</span>more text<span class="nt">&lt;/p&gt;&lt;/td&gt;</span>
-<span class="nt">&lt;td&gt;</span>even <span class="nt">&lt;p&gt;</span>more text<span class="nt">&lt;/p&gt;&lt;/td&gt;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span></span><span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>some text<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">p</span><span class="p">&gt;</span>more text<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>even <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>more text<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span></code></pre></figure>
 
 <p><code>.string</code> on the four <code>td</code> will return,</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">some</span> <span class="n">text</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="n">some</span> <span class="n">text</span>
 <span class="bp">None</span>
 <span class="n">more</span> <span class="n">text</span>
-<span class="bp">None</span></code></pre></div>
+<span class="bp">None</span></code></pre></figure>
 
 <p><code>.text</code> will give result like this,</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">some</span> <span class="n">text</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="n">some</span> <span class="n">text</span>
 
 <span class="n">more</span> <span class="n">text</span>
-<span class="n">even</span> <span class="n">more</span> <span class="n">text</span></code></pre></div>
+<span class="n">even</span> <span class="n">more</span> <span class="n">text</span></code></pre></figure>
 
   </div>
   
